@@ -18,7 +18,7 @@ public class Visits extends Main{
     private DateTime DateVisit;
 	
     
-    public Doctro getIdDoc() {
+    public Doctor getIdDoc() {
         return IdDoc;
     }
 

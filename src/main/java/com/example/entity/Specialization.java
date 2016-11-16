@@ -4,8 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "specialization")
-public class Specializations {
-
+public class Specialization {
+	
+	private Integer id;
     @Column(name = "idspec")
     private Integer IdSpec;
     @Column(name = "name")
