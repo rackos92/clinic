@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Table(name = "specialization")
 public class Specialization {
 	
-	private Integer id;
     @Column(name = "idspec")
     private Integer IdSpec;
     @Column(name = "name")

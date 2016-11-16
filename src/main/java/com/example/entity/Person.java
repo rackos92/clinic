@@ -6,9 +6,7 @@ import javax.persistence.*;
 public class Person {
 	
 	private Integer id;
-    //@Column(name = "name")
-	private String name;
-    //@Column(name = "lastname")
+    private String name;
     private String lastname;
     
     public Integer getId(){
