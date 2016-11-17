@@ -10,7 +10,7 @@ public class Users {
     private String Login;
     @Column(name = "password")
     private String Password;
-    @Column(name = "rank");
+    @Column(name = "rank")
     private Integer Rank;
 
     public String getLogin() {

@@ -40,10 +40,7 @@ public class Person {
     public void setLastName(String lastname){
     	this.lastname = lastname;
     }
-    @Override
-    public String toString(){
-    	return this.getLastName();
-    }
+
     
 
 

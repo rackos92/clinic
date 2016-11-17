@@ -1,10 +1,11 @@
 package com.example.entity;
 
+import java.util.Date;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "visits")
-public class Visits extends Main{
+public class Visits {
 
 	@ManyToOne
 	@JoinColumn(name = "iddoc")
@@ -15,7 +16,7 @@ public class Visits extends Main{
     private Patient PeselPatient;
 	
 	@Column(name = "datevisit")
-    private DateTime DateVisit;
+    private Date DateVisit;
 	
     
     public Doctor getIdDoc() {

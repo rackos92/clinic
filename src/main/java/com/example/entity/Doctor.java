@@ -8,17 +8,17 @@ public class Doctor extends Person{
 
     @ManyToOne
     @JoinColumn(name = "idspec")
-    private Specializations IdSpec;
+    private Specialization IdSpec;
     
     @OneToOne (cascade=CascadeType.ALL)
     @JoinColumn(name = "login")
     private Users login;
     
-    public Specializations getIdSpec() {
+    public Specialization getIdSpec() {
     	return this.IdSpec;
     }
-    public void setIDSPEC(Specializations IdSpec) {
-    	this.IDSPEC = IdSpec;
+    public void setIdSpec(Specialization IdSpec) {
+    	this.IdSpec = IdSpec;
     }
     
     public Users getLogin() {

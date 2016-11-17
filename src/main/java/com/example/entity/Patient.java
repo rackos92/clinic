@@ -1,5 +1,6 @@
 package com.example.entity;
 
+import java.util.Date;
 import javax.persistence.*;
 
 @Entity
