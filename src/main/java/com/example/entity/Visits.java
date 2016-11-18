@@ -40,7 +40,7 @@ public class Visits {
     }
     
     public void setDateVisit(Date DateVisit) {
-    	this.DateVisit = DateVisit
+    	this.DateVisit = DateVisit;
     }
     
 }
