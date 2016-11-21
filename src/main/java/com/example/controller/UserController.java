@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.entity.User;
+import com.example.entity.Users;
 import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,15 +21,16 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<User> findAllUsers() {
+    public List<Users> findAllUsers() {
         return userRepository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void addNewUser(@RequestBody User user) {
-        User user1 = new User();
-        user1.setFirstName(user.getFirstName());
-        user1.setLastName(user.getLastName());
+    public void addNewUser(@RequestBody Users user) {
+        Users user1 = new Users();
+        user1.setLogin(user.getLogin());
+        user1.setPassword(user.getPassword());
+        user1.setRank(user.getRank());
         userRepository.save(user1);
     }
 }
