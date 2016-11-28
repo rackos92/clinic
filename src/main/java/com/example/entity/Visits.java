@@ -7,6 +7,9 @@ import javax.persistence.*;
 @Table(name = "visits")
 public class Visits {
 
+    @Column(name = "idvisit")
+    private Integer IdVisit;
+
 	@ManyToOne
 	@JoinColumn(name = "iddoc")
 	private Doctor IdDoc;
@@ -18,7 +21,10 @@ public class Visits {
 	@Column(name = "datevisit")
     private Date DateVisit;
 	
-    
+    public Integer getIdVisit() { return IdVisit;};
+
+    public void setIdVisit(Integer IdVisit) {this.IdVisit = IdVisit;};
+
     public Doctor getIdDoc() {
         return IdDoc;
     }
