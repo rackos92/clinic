@@ -45,6 +45,11 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.5.5</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.5.4-Final</version>
+		</dependency>
 	</dependencies>
 
 	<build>
