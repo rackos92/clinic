@@ -3,7 +3,6 @@ package com.example.controller;
 import com.example.entity.Specialization;
 import com.example.repository.SpecializationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,10 +17,10 @@ public class SpecializationController {
     @Autowired
     public SpecializationController(SpecializationRepository specializationRepository) { this.specializationRepository = specializationRepository; }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value ="/specialization", method = RequestMethod.GET)
     public List<Specialization> findAllSpecialization() { return specializationRepository.findAll(); }
 
-    @RequestMapping(value ="/specialization", method = RequestMethod.POST)
+    @RequestMapping(value ="/new", method = RequestMethod.POST)
     public void addNewSpecialization(@RequestBody Specialization specialization) {
         Specialization specialization1 = new Specialization();
         specialization1.setIdSpec(specialization.getIdSpec());
@@ -30,19 +29,31 @@ public class SpecializationController {
         specializationRepository.save(specialization1);
     }
 
-    @RequestMapping(value ="/delete", method = RequestMethod.DELETE)
-    public void deleteSpecialization(@RequestBody Specialization specialization) {
-        Specialization specialization1 = new Specialization();
-        specialization1.setIdSpec(specialization.getIdSpec());
-        specialization1.setName(specialization.getName());
-        specialization1.setDescription(specialization.getDescription());
-        specializationRepository.delete(specialization1);
+    @RequestMapping(value ="/delete/{id}", method = RequestMethod.DELETE)
+    public String deleteSpecialization(@RequestBody Specialization specialization) {
+        try {
+            Specialization specialization1 = specializationRepository.findOne(specialization.getIdSpec());
+            specializationRepository.delete(specialization1);
+        }
+        catch (Exception ex) {
+
+        }
+        return "specialization";
     }
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public void editSpecialization(@RequestBody Specialization specialization) {
-        Specialization specialization1 = specialization;
-        specialization1.setName(specialization.getName());
-        specialization1.setDescription(specialization.getDescription());
-        specializationRepository.save(specialization1);
+    @RequestMapping(value = "/value/{id}", method = RequestMethod.POST)
+    public String editSpecialization(@RequestBody Specialization specialization) {
+        try {
+            Specialization specialization1 = specializationRepository.findOne(specialization.getIdSpec());
+            specialization1.setName(specialization.getName());
+            specialization1.setDescription(specialization.getDescription());
+            specializationRepository.save(specialization1);
+        }
+        catch (Exception ex) {
+
+        }
+        return "specialization";
     }
+
+
 }
+
