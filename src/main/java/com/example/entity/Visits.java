@@ -21,7 +21,7 @@ public class Visits {
 	@Column(name = "datevisit")
     private Date DateVisit;
 	
-    public Integer getIdVisit() { return IdVisit;};
+    public Integer getIdVisit() { return IdVisit;}
 
     public void setIdVisit(Integer IdVisit) {this.IdVisit = IdVisit;};
 
@@ -48,5 +48,5 @@ public class Visits {
     public void setDateVisit(Date DateVisit) {
     	this.DateVisit = DateVisit;
     }
-    
+
 }

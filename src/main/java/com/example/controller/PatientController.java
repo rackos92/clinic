@@ -19,11 +19,11 @@ public class PatientController {
     @Autowired
     public PatientController(PatientRepository patientRepository) { this.patientRepository = patientRepository; }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Patient> findAllPatient() {return  patientRepository.findAll(); }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public void addNewPatient(@RequestBody Patient patient) {
+    @RequestMapping(value = "/new",method = RequestMethod.POST)
+    public String addNewPatient(@RequestBody Patient patient) {
         Patient patient1 = new Patient();
         //patient1.setId(patient.getId());
         patient1.setPesel(patient.getPesel());
@@ -35,5 +35,25 @@ public class PatientController {
         patient1.setCity(patient.getCity());
         patient1.setPostalCode(patient.getPostalCode());
         patient1.setPhoneContact(patient.getPhoneContact());
+        return "patient";
+    }
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public String deletePatient(@RequestBody Patient patient) {
+        Patient patient1 = patientRepository.findOne(patient.getPesel());
+        patientRepository.delete(patient1);
+        return "patient";
+    }
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public String editPatient(@RequestBody Patient patient) {
+        Patient patient1 = patientRepository.findOne(patient.getPesel());
+        //patient1.setName(patient.getName());
+        patient1.setLastName(patient.getLastName());
+        //patient1.setDateOfBirth(patient.getDateOfBirth());
+        patient1.setApartmentNr(patient.getApartmentNr());
+        patient1.setStreet(patient.getStreet());
+        patient1.setCity(patient.getCity());
+        patient1.setPostalCode(patient.getPostalCode());
+        patient1.setPhoneContact(patient.getPhoneContact());
+        return "patient";
     }
 }

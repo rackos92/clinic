@@ -20,17 +20,32 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     public List<Users> findAllUsers() {
         return userRepository.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public void addNewUser(@RequestBody Users user) {
+    @RequestMapping(value = "/new",method = RequestMethod.POST)
+    public String addNewUser(@RequestBody Users user) {
         Users user1 = new Users();
         user1.setLogin(user.getLogin());
         user1.setPassword(user.getPassword());
         user1.setRank(user.getRank());
         userRepository.save(user1);
+        return "users";
+    }
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public String deleteUser(@RequestBody Users user) {
+        Users user1 = userRepository.findOne(user.getLogin());
+        userRepository.delete(user1);
+        return "users";
+    }
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public String editUser(@RequestBody Users user) {
+        Users user1 = userRepository.findOne(user.getLogin());
+        user1.setPassword(user.getPassword());
+        user1.setRank(user.getRank());
+        userRepository.save(user1);
+        return "users";
     }
 }

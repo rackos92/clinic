@@ -36,7 +36,7 @@ public class SpecializationController {
         specializationRepository.delete(specialization1);
         return "specializations";
     }
-    @RequestMapping(value = "/value/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editSpecialization(@RequestBody Specialization specialization) {
         Specialization specialization1 = specializationRepository.findOne(specialization.getIdSpec());
         specialization1.setName(specialization.getName());
