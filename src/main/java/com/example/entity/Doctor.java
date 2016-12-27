@@ -5,14 +5,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "doctor")
 public class Doctor extends Person{
-
+    @Column(name = "iddoc")
+    private Integer IdDoc;
     @ManyToOne
     @JoinColumn(name = "idspec")
     private Specialization IdSpec;
     
     @OneToOne (cascade=CascadeType.ALL)
-    @JoinColumn(name = "login")
-    private Users login;
+    @JoinColumn(name = "iduser")
+    private Users idUsers;
     
     public Specialization getIdSpec() {
     	return this.IdSpec;
@@ -21,10 +22,13 @@ public class Doctor extends Person{
     	this.IdSpec = IdSpec;
     }
     
-    public Users getLogin() {
-    	return this.login;
+    public Users getIdUsers() {
+    	return this.idUsers;
     }
-    public void setLogin(Users login) {
-    	this.login = login;
+    public void setIdUsers(Users idUsers) {
+    	this.idUsers = idUsers;
     }
+
+    public Integer getIdDoc() {return IdDoc;}
+    public void setIdDoc(Integer IdDoc){this.IdDoc= IdDoc; }
 }

@@ -25,7 +25,8 @@ public class PatientController {
     @RequestMapping(value = "/new",method = RequestMethod.POST)
     public String addNewPatient(@RequestBody Patient patient) {
         Patient patient1 = new Patient();
-        //patient1.setId(patient.getId());
+        patient1.setIdpatient(patient.getIdpatient());
+        patient1.setIdUser(patient.getIdUsers());
         patient1.setPesel(patient.getPesel());
         patient1.setName(patient.getName());
         patient1.setLastName(patient.getLastName());
@@ -39,13 +40,13 @@ public class PatientController {
     }
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public String deletePatient(@RequestBody Patient patient) {
-        Patient patient1 = patientRepository.findOne(patient.getPesel());
+        Patient patient1 = patientRepository.findOne(patient.getIduser());
         patientRepository.delete(patient1);
         return "patient";
     }
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editPatient(@RequestBody Patient patient) {
-        Patient patient1 = patientRepository.findOne(patient.getPesel());
+        Patient patient1 = patientRepository.findOne(patient.getIduser());
         //patient1.setName(patient.getName());
         patient1.setLastName(patient.getLastName());
         //patient1.setDateOfBirth(patient.getDateOfBirth());

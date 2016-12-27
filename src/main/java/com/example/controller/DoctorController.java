@@ -24,11 +24,11 @@ public class DoctorController {
     @RequestMapping(value = "/new",method = RequestMethod.POST)
     public String addNewDoctor(@RequestBody Doctor doctor) {
         Doctor doctor1 = new Doctor();
-        doctor1.setId(doctor.getId());
+        doctor1.setIdDoc(doctor.getIdDoc());
         doctor1.setName(doctor.getName());
         doctor1.setLastName(doctor.getLastName());
         doctor1.setIdSpec(doctor.getIdSpec());
-        doctor1.setLogin(doctor.getLogin());
+        doctor1.setIdUsers(doctor.getIdUsers());
         return "doctor";
     }
     @RequestMapping(value = "/delete/{id}",method = RequestMethod.DELETE)
@@ -43,7 +43,7 @@ public class DoctorController {
         doctor1.setName(doctor.getName());
         doctor1.setLastName(doctor.getLastName());
         doctor1.setIdSpec(doctor.getIdSpec());
-        doctor1.setLogin(doctor.getLogin());
+        doctor1.setIdUsers(doctor.getIdUsers());
         return "doctor";
     }
 }

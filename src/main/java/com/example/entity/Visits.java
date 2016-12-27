@@ -15,8 +15,8 @@ public class Visits {
 	private Doctor IdDoc;
 	
 	@ManyToOne
-	@JoinColumn(name = "peselpatient")
-    private Patient PeselPatient;
+	@JoinColumn(name = "idpatient")
+    private Patient idPatient;
 	
 	@Column(name = "datevisit")
     private Date DateVisit;
@@ -33,12 +33,12 @@ public class Visits {
         this.IdDoc = IdDoc;
     }
 
-    public Patient getPeselPatient() {
-        return PeselPatient;
+    public Patient getIdPatient() {
+        return idPatient;
     }
 
-    public void setPeselPatient(Patient PeselPatient) {
-        this.PeselPatient = PeselPatient;
+    public void setIdPatient(Patient idPatient) {
+        this.idPatient = idPatient;
     }
     
     public Date getDateVisit() {

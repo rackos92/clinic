@@ -27,7 +27,7 @@ public class VisitsController {
         visits1.setIdVisit(visits.getIdVisit());
         visits1.setDateVisit(visits.getDateVisit());
         visits1.setIdDoc(visits.getIdDoc());
-        visits1.setPeselPatient(visits.getPeselPatient());
+        visits1.setIdPatient(visits.getIdPatient());
         visitRepository.save(visits);
         return "visits";
     }
@@ -42,7 +42,7 @@ public class VisitsController {
         Visits visits1 = visitRepository.findOne(visits.getIdVisit());
         visits1.setDateVisit(visits.getDateVisit());
         visits1.setIdDoc(visits.getIdDoc());
-        visits1.setPeselPatient(visits.getPeselPatient());
+        visits1.setIdPatient(visits.getIdPatient());
         visitRepository.save(visits);
         return "visits";
     }

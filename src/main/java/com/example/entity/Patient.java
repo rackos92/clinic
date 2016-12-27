@@ -5,11 +5,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "patient")
-public class Patient extends Person{
+public class Patient extends Users{
+    @Column(name = "idpatient")
+    private Integer idpatient;
 
-    @Column(name = "pesel")
-    private Integer Pesel;
-       
     @Column(name = "dateofbirth")
     private Date DateOfBirth;
     
@@ -29,16 +28,14 @@ public class Patient extends Person{
     private String PostalCode;
     
     @OneToOne (cascade=CascadeType.ALL)
-    @JoinColumn(name = "login")
-    private Users Login;
-    
-    public Integer getPesel() {
-        return Pesel;
+    @JoinColumn(name = "idpatient")
+    private Users iduser;
+
+    public Integer getIdpatient() {
+        return idpatient;
     }
 
-    public void setPesel(Integer Pesel) {
-        this.Pesel = Pesel;
-    }
+    public void setIdpatient(Integer idpatient) {this.idpatient = idpatient;}
    
     public Date getDateOfBirth() {
     	return DateOfBirth;
@@ -88,11 +85,9 @@ public class Patient extends Person{
     	this.PostalCode = PostalCode;
     }
     
-    public Users getLogin() {
-    	return this.Login;
+    public Users getIdUsers() {
+    	return this.iduser;
     }
     
-    protected void setLogin(Users Login) {
-    	this.Login = Login;
-    }
+    public void setIdUser(Users iduser) {this.iduser = iduser;}
 }
